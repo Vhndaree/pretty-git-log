@@ -92,30 +92,6 @@ func filterCommitsByUser(c commits, userName string) commits {
 	return temp
 }
 
-// FetchMyCommitsOnMaster - returns Commits
-// func FetchMyCommitsOnMaster() commits {
-// 	var commitResponse commits
-// 	var emptyResponse commits
-// 	url := "https://api.github.com/repos/phil-inc/pp-dash/commits?author=Vhndaree&since=2019-12-01"
-// 	resp, err := fetchFromGithub(url)
-// 	if err != nil {
-// 		log.Fatal(err)
-// 		return emptyResponse
-// 	}
-
-// 	err = json.Unmarshal(resp, &commitResponse)
-// 	if err != nil {
-// 		log.Fatal(err)
-// 		return emptyResponse
-// 	}
-
-// 	for _, v := range commitResponse.Commits {
-// 		fmt.Printf("%+v\n\n", v)
-// 	}
-
-// 	return commitResponse
-// }
-
 func fetchFromGithub(url string) ([]byte, error) {
 	myGithubToken := "token " + os.Getenv("GITHUB_TOKEN")
 	resp := service.GetWithAuthorization(url, myGithubToken)
