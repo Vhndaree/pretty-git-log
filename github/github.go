@@ -7,8 +7,8 @@ import (
 	"os"
 	"strings"
 
-	"github.com/task-monitor/github/interfaces"
-	"github.com/task-monitor/service"
+	"github.com/Vhndaree/task-monitor/github/interfaces"
+	"github.com/Vhndaree/task-monitor/service"
 )
 
 type pullRequestsWithCommits = interfaces.PullRequestsWithCommits
