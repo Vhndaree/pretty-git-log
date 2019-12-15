@@ -6,9 +6,9 @@ import (
 	"os"
 	"strconv"
 
-	"task-monitor/github"
-	"task-monitor/github/interfaces"
-	"task-monitor/service"
+	"github.com/task-monitor/github"
+	"github.com/task-monitor/github/interfaces"
+	"github.com/task-monitor/service"
 )
 
 // Write - create and write into file

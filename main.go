@@ -1,6 +1,6 @@
 package main
 
-import "task-monitor/file"
+import "github.com/task-monitor/file"
 
 func main() {
 	file.Write()
