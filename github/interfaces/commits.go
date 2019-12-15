@@ -3,11 +3,12 @@ package interfaces
 import "time"
 
 // Commits holds commit log
-type Commits []*commit
+type Commits []Commit
 
-type commit struct {
+type Commit struct {
 	Hash          string        `json:"sha"`
 	URL           string        `json:"html_url"`
+	APIURL        string        `json:"url"`
 	CommitDetails commitDetails `json:"commit"`
 	UserName      author        `json:"author"`
 }
