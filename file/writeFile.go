@@ -30,7 +30,7 @@ func Write() {
 func getContent() string {
 	content := ""
 	var ghr interfaces.PullRequestsWithCommits
-	ghr = github.FetchPullRequestsWithCommits()
+	ghr = github.CombineAllPRs()
 	for _, v := range ghr {
 		spaces := getSpaces(len(strconv.Itoa(v.PullRequest.PullNumber)))
 		content += "#" + strconv.Itoa(v.PullRequest.PullNumber) + "\t" + "PR: " + v.PullRequest.Link + "\n"
