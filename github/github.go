@@ -2,13 +2,14 @@ package github
 
 import (
 	"encoding/json"
+	"fmt"
 	"io/ioutil"
 	"log"
 	"os"
 	"strings"
 
 	"github.com/Vhndaree/task-monitor/github/interfaces"
-	"github.com/Vhndaree/task-monitor/service"
+	"github.com/Vhndaree/task-monitor/util"
 )
 
 type pullRequestsWithCommits = interfaces.PullRequestsWithCommits
@@ -23,12 +24,12 @@ func FetchPullRequestsWithCommits() pullRequestsWithCommits {
 	var pullRequests pullRequests
 	var pullRequestWithCommits pullRequestWithCommits
 	var pullRequestsWithCommits pullRequestsWithCommits
-	myUseName := "Vhndaree"
+	myGithubUserName := os.Getenv("GITHUB_USERNAME")
 	pullRequests = fetchPullRequests()
 
 	for _, v := range pullRequests.PullRequests {
 		path := v.PullRequest.URL
-		commits = fetchMyCommitsOnPR(path, myUseName)
+		commits = fetchMyCommitsOnPR(path, myGithubUserName)
 		pullRequestWithCommits.PullRequest = v
 		pullRequestWithCommits.Commits = commits
 
@@ -42,7 +43,8 @@ func FetchPullRequestsWithCommits() pullRequestsWithCommits {
 func fetchPullRequests() pullRequests {
 	var PRResponse pullRequests
 	var emptyResponse pullRequests
-	url := "https://api.github.com/search/issues?q=author:Vhndaree+is:pr+created:2019-08-01.." + service.GetTodaysDate()
+	myGithubUserName := os.Getenv("GITHUB_USERNAME")
+	url := fmt.Sprintf("https://api.github.com/search/issues?q=author:%s+is:pr+created:2019-11-29..%s", myGithubUserName, util.GetTodaysDate())
 	resp, err := fetchFromGithub(url)
 
 	if err != nil {
@@ -63,7 +65,7 @@ func fetchPullRequests() pullRequests {
 func fetchMyCommitsOnPR(path, myUserName string) commits {
 	var commitResponse commits
 	var emptyResponse commits
-	url := path + "/commits"
+	url := fmt.Sprintf("%s/commits", path)
 	resp, err := fetchFromGithub(url)
 	if err != nil {
 		log.Fatal(err)
@@ -94,7 +96,7 @@ func filterCommitsByUser(c commits, userName string) commits {
 
 func fetchFromGithub(url string) ([]byte, error) {
 	myGithubToken := "token " + os.Getenv("GITHUB_TOKEN")
-	resp := service.GetWithAuthorization(url, myGithubToken)
+	resp := util.GetWithAuthorization(url, myGithubToken)
 
 	body, err := ioutil.ReadAll(resp.Body)
 	if err != nil {
