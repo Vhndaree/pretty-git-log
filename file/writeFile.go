@@ -8,13 +8,13 @@ import (
 
 	"github.com/Vhndaree/task-monitor/github"
 	"github.com/Vhndaree/task-monitor/github/interfaces"
-	"github.com/Vhndaree/task-monitor/service"
+	"github.com/Vhndaree/task-monitor/util"
 )
 
 // Write - create and write into file
 func Write() {
 	// create file for writting
-	file, err := os.Create("/home/lf/Downloads/for_timesheet/Vhndaree_" + service.GetTodaysDate() + ".text")
+	file, err := os.Create("/home/lf/Downloads/for_timesheet/Vhndaree_" + util.GetTodaysDate() + ".text")
 
 	if err != nil {
 		log.Fatal(err)
@@ -36,7 +36,7 @@ func getContent() string {
 		content += "#" + strconv.Itoa(v.PullRequest.PullNumber) + "\t" + "PR: " + v.PullRequest.Link + "\n"
 		content += spaces + v.PullRequest.Title + "\n"
 		content += spaces + "Description: " + v.PullRequest.Body + "\n\n"
-		content += spaces + "----------------------------------Commits---------------------------------"
+		content += spaces + "----------Commits----------"
 
 		count := 1
 		LastCommitDate := "2000-01-01"
