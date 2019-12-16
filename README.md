@@ -1,2 +1,2 @@
 # TASK MONITOR 
-## Monitors your commits and PRs on github
+## Monitors your commits and Log in git
