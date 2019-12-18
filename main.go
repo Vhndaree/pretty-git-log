@@ -1,11 +1,15 @@
 package main
 
 import (
-	"github.com/Vhndaree/task-monitor/file"
-	"github.com/Vhndaree/task-monitor/util"
+	"github.com/vhndaree/pretty-git-log/file"
+	"github.com/vhndaree/pretty-git-log/util"
 )
 
-func main() {
+// GO auto calls init before main
+func init() {
 	util.ParseAndSetEnv("")
+}
+
+func main() {
 	file.Write()
 }

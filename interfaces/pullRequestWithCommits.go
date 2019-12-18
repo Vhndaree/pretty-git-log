@@ -5,6 +5,6 @@ type PullRequestsWithCommits []PullRequestWithCommits
 
 // PullRequestWithCommits - structure for PR with its commits
 type PullRequestWithCommits struct {
-	PullRequest *PullRequest
+	PullRequest PullRequest
 	Commits     Commits
 }

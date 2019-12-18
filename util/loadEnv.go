@@ -15,6 +15,7 @@ func ParseAndSetEnv(fName string) {
 	}
 	f := readFile(fName)
 	s := strings.Split(f, "\n")
+	s = removeComments(s)
 
 	for _, v := range s {
 		e := strings.Split(v, "=")
@@ -38,4 +39,16 @@ func readFile(fName string) string {
 	}
 
 	return string(f)
+}
+
+func removeComments(s []string) (rs []string) {
+	for _, v := range s {
+		if strings.HasPrefix(v, "#") {
+			continue
+		}
+
+		rs = append(rs, v)
+	}
+
+	return
 }
