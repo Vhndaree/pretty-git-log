@@ -4,17 +4,18 @@ import (
 	"fmt"
 	"log"
 	"os"
-	"strconv"
 
-	"github.com/Vhndaree/task-monitor/github"
-	"github.com/Vhndaree/task-monitor/github/interfaces"
-	"github.com/Vhndaree/task-monitor/service"
+	"github.com/Vhndaree/pretty-git-log/interfaces"
+	"github.com/Vhndaree/pretty-git-log/service/github"
+	"github.com/Vhndaree/pretty-git-log/util"
 )
+
+var getSpaces = util.GetSpacesOfLength
 
 // Write - create and write into file
 func Write() {
 	// create file for writting
-	file, err := os.Create("/home/lf/Downloads/for_timesheet/Vhndaree_" + service.GetTodaysDate() + ".text")
+	file, err := os.Create("/home/lf/Downloads/for_timesheet/Vhndaree_" + util.GetTodaysDate() + ".text")
 
 	if err != nil {
 		log.Fatal(err)
@@ -30,13 +31,14 @@ func Write() {
 func getContent() string {
 	content := ""
 	var ghr interfaces.PullRequestsWithCommits
-	ghr = github.FetchPullRequestsWithCommits()
+	ghr = github.FetchMyPullRequestsWithMyCommits()
 	for _, v := range ghr {
-		spaces := getSpaces(len(strconv.Itoa(v.PullRequest.PullNumber)))
-		content += "#" + strconv.Itoa(v.PullRequest.PullNumber) + "\t" + "PR: " + v.PullRequest.Link + "\n"
+		pn := fmt.Sprintf("%d", int(v.PullRequest.PullNumber))
+		spaces := getSpaces(len(pn))
+		content += "#" + pn + "\t" + "PR: " + v.PullRequest.Link + "\n"
 		content += spaces + v.PullRequest.Title + "\n"
 		content += spaces + "Description: " + v.PullRequest.Body + "\n\n"
-		content += spaces + "----------------------------------Commits---------------------------------"
+		content += spaces + "----------Commits----------"
 
 		count := 1
 		LastCommitDate := "2000-01-01"
@@ -62,13 +64,4 @@ func getContent() string {
 	}
 
 	return content
-}
-
-func getSpaces(length int) string {
-	spaces := ""
-	for i := 0; i < length; i++ {
-		spaces += " "
-	}
-
-	return spaces + " \t"
 }

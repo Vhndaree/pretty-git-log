@@ -2,10 +2,11 @@ package interfaces
 
 import "time"
 
-// Commits holds commit log
-type Commits []*commit
+// Commits holds array of commit log
+type Commits []Commit
 
-type commit struct {
+// Commit holds commit log
+type Commit struct {
 	Hash          string        `json:"sha"`
 	URL           string        `json:"html_url"`
 	CommitDetails commitDetails `json:"commit"`
