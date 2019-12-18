@@ -7,8 +7,8 @@ import (
 	"log"
 	"os"
 
-	"github.com/vhndaree/pretty-git-log/interfaces"
-	"github.com/vhndaree/pretty-git-log/util"
+	"github.com/Vhndaree/pretty-git-log/interfaces"
+	"github.com/Vhndaree/pretty-git-log/util"
 )
 
 // Args - arguments to CallFunc function

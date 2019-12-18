@@ -5,9 +5,9 @@ import (
 	"log"
 	"os"
 
-	"github.com/vhndaree/pretty-git-log/interfaces"
-	"github.com/vhndaree/pretty-git-log/service/github"
-	"github.com/vhndaree/pretty-git-log/util"
+	"github.com/Vhndaree/pretty-git-log/interfaces"
+	"github.com/Vhndaree/pretty-git-log/service/github"
+	"github.com/Vhndaree/pretty-git-log/util"
 )
 
 var getSpaces = util.GetSpacesOfLength

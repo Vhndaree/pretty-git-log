@@ -4,9 +4,9 @@ import (
 	"encoding/json"
 	"log"
 
-	"github.com/vhndaree/pretty-git-log/apis/github"
-	"github.com/vhndaree/pretty-git-log/interfaces"
-	"github.com/vhndaree/pretty-git-log/util"
+	"github.com/Vhndaree/pretty-git-log/apis/github"
+	"github.com/Vhndaree/pretty-git-log/interfaces"
+	"github.com/Vhndaree/pretty-git-log/util"
 )
 
 type pullRequestsWithCommits = interfaces.PullRequestsWithCommits

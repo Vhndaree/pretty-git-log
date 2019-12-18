@@ -4,7 +4,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/vhndaree/pretty-git-log/interfaces"
+	"github.com/Vhndaree/pretty-git-log/interfaces"
 )
 
 // GetTodaysDate - returns todays date in YYYY-MM-DD format

@@ -1,8 +1,8 @@
 package main
 
 import (
-	"github.com/vhndaree/pretty-git-log/file"
-	"github.com/vhndaree/pretty-git-log/util"
+	"github.com/Vhndaree/pretty-git-log/file"
+	"github.com/Vhndaree/pretty-git-log/util"
 )
 
 // GO auto calls init before main
