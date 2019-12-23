@@ -15,7 +15,7 @@
 5. open repo and run `cp .example.env` <br/>
   -- change `GITHUB_TOKEN` with your token <br/>
     generate token [here](https://github.com/settings/tokens/new?scopes=&description=pgl) 
-6. Now Your are ready to go, run `go run main.go` <br/> <br/>
+6. Now You are ready to go, run `go run main.go` <br/> <br/>
 
 
 &copy; [Ram Bhandari](https://github.com/Vhndaree )
