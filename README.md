@@ -7,11 +7,11 @@
 2. Set GOPATH <br/>
     -- Run `export GOPATH=/path/desired/here` command 
     
-### For Contributors
-3. Fork and clone repo -> Send PR
+    ### For Contributors
+    3. Fork and clone repo -> Send PR
 
-### For Users
-3. run `go get github.com/Vhndaree/preety-git-log` <br/><br/>
+    ### For Users
+    3. run `go get github.com/Vhndaree/preety-git-log` <br/><br/>
 4. open repo and run `cp .example.env .env` <br/>
   -- change `GITHUB_TOKEN` with your token and remove # of the line<br/>
     generate token [here](https://github.com/settings/tokens/new?scopes=&description=pgl) 
