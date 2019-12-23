@@ -10,6 +10,10 @@ import (
 
 // ParseAndSetEnv - set env variables
 func ParseAndSetEnv(fName string) {
+	if _, tokenExists := os.LookupEnv("GITHUB_TOKEN"); tokenExists {
+		return
+	}
+
 	if fName == "" {
 		fName = ".env"
 	}
