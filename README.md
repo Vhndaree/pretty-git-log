@@ -12,8 +12,8 @@
       `git clone https://github.com/Vhndaree/pretty-git-log.git` <enter>
     -- SSH<enter>
       `git@github.com:Vhndaree/pretty-git-log.git`
-5. open repo and run `cp .example.env`<enter>
-  -- change `GITHUB_TOKEN` with your token<enter>
+5. open repo and run `cp .example.env` <enter>
+  -- change `GITHUB_TOKEN` with your token <enter>
     generate token [here](https://github.com/settings/tokens/new?scopes=&description=pgl)
 6. Now Your are ready to go, run `go run main.go` <enter> <enter>
 
