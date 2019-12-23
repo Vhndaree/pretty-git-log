@@ -2,7 +2,7 @@
 ### Monitors your Pull Requests and commits on git (current version only supports Github)
 
 #### Prerequisites
-1. Install Golang v-a.12.5 <br/>
+1. Install Golang v1.12.5 <br/>
     -- verify by `go version` command in console.
 2. Set GOPATH <br/>
     -- Run `export GOPATH=/path/desired/here` command 
