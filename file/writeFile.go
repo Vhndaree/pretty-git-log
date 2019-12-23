@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"log"
 	"os"
+	"os/user"
 
 	"github.com/Vhndaree/pretty-git-log/interfaces"
 	"github.com/Vhndaree/pretty-git-log/service/github"
@@ -14,8 +15,21 @@ var getSpaces = util.GetSpacesOfLength
 
 // Write - create and write into file
 func Write() {
+	myself, err := user.Current()
+	if err != nil {
+		log.Fatal(err)
+		return
+	}
+
+	downloadDir := fmt.Sprintf("%s/Downloads/", myself.HomeDir)
+	saveFileDir := downloadDir + "gitlog/"
+	dirExists, _ := util.Exists(saveFileDir)
+	if !dirExists {
+		os.Mkdir(saveFileDir, os.ModePerm)
+	}
+
 	// create file for writting
-	file, err := os.Create("/home/lf/Downloads/for_timesheet/Vhndaree_" + util.GetTodaysDate() + ".text")
+	file, err := os.Create(saveFileDir + util.GetTodaysDate() + ".txt")
 
 	if err != nil {
 		log.Fatal(err)
